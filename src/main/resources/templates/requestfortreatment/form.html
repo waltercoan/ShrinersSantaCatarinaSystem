@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="layout :: htmlhead"></head>
+	<body>
+		<div class="container-fluid bg-light py-3">
+			<nav th:replace="layout :: menu">(menu)</nav>
+		    <form id="contact-form" method="post" th:action="@{/requestfortreatment/(form)}" th:object="${request}" role="form">
+		    	<input type="hidden" id="txtid" th:field="*{id}" />
+		        <div class="messages"></div>
+		        <div class="controls">
+		        	<div class="row"><div class="col-sm-4"><h3>Nova solicitação de atendimento</h3></div></div>
+		        	<div class="row"><div class="col-sm-4"><h4>Identificação</h4></div></div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_name">Sobrenome</label>
+		                        <input id="form_name" type="text" name="childLastName" th:field="*{demographics.childLastName}" class="form-control" required="required" data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_email">Primeiro nome</label>
+		                        <input id="form_email" type="text" name="childFirstName" th:field="*{demographics.childFirstName}" class="form-control" required="required" data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_phone">Nome do meio</label>
+		                        <input id="form_phone" type="text" name="childLMiddleName" th:field="*{demographics.childLMiddleName}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_phone">Sufixo</label>
+		                        <input id="form_phone" type="text" name="childSuffixName" th:field="*{demographics.childSuffixName}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_name">Data Nascimento</label>
+		                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
+				                    	th:field="*{demographics.birth}"/>
+				                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+				                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_email">Genero</label>
+		                        <select class="form-control" name="childFirstName" th:field="*{demographics.gender}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Gender).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+						        
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_phone">Idioma preferencial</label>
+		                        <input id="form_phone" type="text" name="preferredLanguage" th:field="*{demographics.preferredLanguage}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="form_phone">Necessidade de interprete</label>
+		                        <select class="form-control" name="interpreterRequired" th:field="*{demographics.interpreterRequired}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Estado civil dos pais</label>
+		                        <select class="form-control" name="parentMaritalStatus" th:field="*{demographics.parentMaritalStatus}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.ParentMaritalStatus).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_email">Custodia</label>
+		                        <select class="form-control" name="custody" th:field="*{demographics.custody}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Custody).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+						        
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_phone">Reside com quem?</label>
+		                        <select class="form-control" name="living" th:field="*{demographics.living}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Living).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-8">
+		                    <div class="form-group">
+		                        <label for="form_name">Endereço da criança</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="childHomeAddress" th:field="*{demographics.childHomeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-2">
+		                    <div class="form-group">
+		                        <label for="form_email">Cidade</label>
+		                        <select class="form-control" name="city" th:field="*{demographics.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+						        
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">CEP</label>
+		                        <input id="form_phone" type="text" name="zipCode" th:field="*{demographics.zipCode}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_email">Município</label>
+		                        <input id="form_phone" type="text" name="country" th:field="*{demographics.country}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_phone">Endereço residêncial é o mesmo de correspondência?</label>
+		                        <select class="form-control" name="homeAddressMaillingAddress" th:field="*{demographics.homeAddressMaillingAddress}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-8">
+		                    <div class="form-group">
+		                        <label for="form_name">Endereço de correspondência</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="childPermanentAddress" th:field="*{demographics.childPermanentAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-2">
+		                    <div class="form-group">
+		                        <label for="form_email">Cidade do endereço de correspondência</label>
+		                        <select class="form-control" name="cityChildPermanentAddress" th:field="*{demographics.cityChildPermanentAddress}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+						        
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-6">
+		                    <div class="form-group">
+		                        <label for="form_name">CEP do endereço de correspondência</label>
+		                        <input id="form_phone" type="text" name="zipCodeChildPermanentAddress" th:field="*{demographics.zipCodeChildPermanentAddress}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-6">
+		                    <div class="form-group">
+		                        <label for="form_email">Município do endereço de correspondência</label>
+		                        <input id="form_phone" type="text" name="countryChildPermanentAddress" th:field="*{demographics.countryChildPermanentAddress}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Telefone da casa</label>
+		                        <input id="form_phone" type="text" name="primaryHomeNumber" th:field="*{demographics.primaryHomeNumber}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Telefone a casa alternativo um</label>
+		                        <input id="form_phone" type="text" name="alternateHomeNumberOne" th:field="*{demographics.alternateHomeNumberOne}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Telefone da casa alternativo dois</label>
+		                        <input id="form_phone" type="text" name="alternateHomeNumberTwo" th:field="*{demographics.alternateHomeNumberTwo}" class="form-control" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Situação Clínica</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="form_name">Descreva qual a doença ou diagnóstico da criança</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="medicalProblemDescription" th:field="*{medicalInformation.medicalProblemDescription}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-8">
+		                    <div class="form-group">
+		                        <label for="form_name">Início do problema</label>
+		                        <select class="form-control" name="onsetOfProblem" th:field="*{medicalInformation.onsetOfProblem}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.OnsetOfProblem).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-2">
+		                    <div class="form-group">
+		                        <label for="form_name">Data do início do problema</label>
+		                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" 
+				                    	th:field="*{medicalInformation.dateOnsetOfProblem}"/>
+				                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+				                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="form_name">Qual tratamento médico ou serviço você esta solicitando?</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="whatMedicalCareOrServiceLookingFor" th:field="*{medicalInformation.whatMedicalCareOrServiceLookingFor}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="form_name">Quais tratamentos anteriores a criança já recebeu?</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="whatPreviousTreatments" th:field="*{medicalInformation.whatPreviousTreatments}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-8">
+		                    <div class="form-group">
+		                        <label for="form_name">Qual a condição de locomoção da criança?</label>
+		                        <select class="form-control" name="childAmbulationStatus" th:field="*{medicalInformation.childAmbulationStatus}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.ChildAmbulationStatus).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Descrição da condição de locomoção outros</label>
+		                        <textarea id="form_message" class="form-control"  rows="4" name="childAmbulationStatusOther" th:field="*{medicalInformation.childAmbulationStatusOther}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Foi realizado um exame da Raio X?</label>
+		                        <select class="form-control" name="xRayAvailable" th:field="*{medicalInformation.xRayAvailable}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Data do Raio X mais recente</label>
+		                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" 
+				                    	th:field="*{medicalInformation.dateMostRecentXRay}"/>
+				                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+				                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="form_name">Data da última consulta</label>
+		                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" 
+				                    	th:field="*{medicalInformation.dateLastSeeByPhysician}"/>
+				                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+				                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		        </div>
+		        <div class="clearfix"></div>
+		
+		        <div class="row">
+		            <div class="col-md-12">
+		                <input type="submit" class="btn btn-warning btn-send" value="Salvar">
+		            </div>
+		        </div>
+		    </form>
+		</div>
+		
+		<div th:include="layout :: footer" id="footer">(footer)</div>
+		<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker2').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                
+            });
+        </script>
+	</body>
+</html>
