@@ -13,29 +13,29 @@
 		            <div class="row">
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_name">Sobrenome</label>
-		                        <input id="form_name" type="text" name="childLastName" th:field="*{demographics.childLastName}" class="form-control" required="required" data-error="">
+		                        <label for="childLastName">Sobrenome</label>
+		                        <input id="childLastName" type="text" name="childLastName" th:field="*{demographics.childLastName}" class="form-control"  data-error="">
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_email">Primeiro nome</label>
-		                        <input id="form_email" type="text" name="childFirstName" th:field="*{demographics.childFirstName}" class="form-control" required="required" data-error="">
+		                        <label for="childFirstName">Primeiro nome</label>
+		                        <input id="childFirstName" type="text" name="childFirstName" th:field="*{demographics.childFirstName}" class="form-control"  data-error="">
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_phone">Nome do meio</label>
-		                        <input id="form_phone" type="text" name="childLMiddleName" th:field="*{demographics.childLMiddleName}" class="form-control" >
+		                        <label for="childMiddleName">Nome do meio</label>
+		                        <input id="childMiddleName" type="text" name="childMiddleName" th:field="*{demographics.childMiddleName}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_phone">Sufixo</label>
-		                        <input id="form_phone" type="text" name="childSuffixName" th:field="*{demographics.childSuffixName}" class="form-control" >
+		                        <label for="childSuffixName">Sufixo</label>
+		                        <input id="childSuffixName" type="text" name="childSuffixName" th:field="*{demographics.childSuffixName}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -43,7 +43,7 @@
 		            <div class="row">
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_name">Data Nascimento</label>
+		                        <label for="datetimepicker1">Data Nascimento</label>
 		                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
 				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" 
 				                    	th:field="*{demographics.birth}"/>
@@ -56,8 +56,8 @@
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_email">Genero</label>
-		                        <select class="form-control" name="childFirstName" th:field="*{demographics.gender}">
+		                        <label for="childFirstName">Genero</label>
+		                        <select class="form-control" id="childFirstName" name="childFirstName" th:field="*{demographics.gender}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Gender).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -69,15 +69,15 @@
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_phone">Idioma preferencial</label>
-		                        <input id="form_phone" type="text" name="preferredLanguage" th:field="*{demographics.preferredLanguage}" class="form-control" >
+		                        <label for="preferredLanguage">Idioma preferencial</label>
+		                        <input id="preferredLanguage" type="text" name="preferredLanguage" th:field="*{demographics.preferredLanguage}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-3">
 		                    <div class="form-group">
-		                        <label for="form_phone">Necessidade de interprete</label>
-		                        <select class="form-control" name="interpreterRequired" th:field="*{demographics.interpreterRequired}">
+		                        <label for="interpreterRequired">Necessidade de interprete</label>
+		                        <select class="form-control" id="interpreterRequired" name="interpreterRequired" th:field="*{demographics.interpreterRequired}">
 						            <option th:value="true">Sim</option>
 				            		<option th:value="false">Não</option>
 						        </select>
@@ -88,8 +88,8 @@
 		            <div class="row">
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Estado civil dos pais</label>
-		                        <select class="form-control" name="parentMaritalStatus" th:field="*{demographics.parentMaritalStatus}">
+		                        <label for="parentMaritalStatus">Estado civil dos pais</label>
+		                        <select class="form-control" id="parentMaritalStatus" name="parentMaritalStatus" th:field="*{demographics.parentMaritalStatus}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.ParentMaritalStatus).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -100,8 +100,8 @@
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_email">Custodia</label>
-		                        <select class="form-control" name="custody" th:field="*{demographics.custody}">
+		                        <label for="custody">Custodia</label>
+		                        <select class="form-control" id="custody" name="custody" th:field="*{demographics.custody}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Custody).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -113,8 +113,8 @@
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_phone">Reside com quem?</label>
-		                        <select class="form-control" name="living" th:field="*{demographics.living}">
+		                        <label for="living">Reside com quem?</label>
+		                        <select class="form-control" id="living" name="living" th:field="*{demographics.living}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.Living).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -127,15 +127,15 @@
 		            <div class="row">
 		                <div class="col-sm-8">
 		                    <div class="form-group">
-		                        <label for="form_name">Endereço da criança</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="childHomeAddress" th:field="*{demographics.childHomeAddress}" ></textarea>
+		                        <label for="childHomeAddress">Endereço da criança</label>
+		                        <textarea id="childHomeAddress" class="form-control" rows="4" name="childHomeAddress" th:field="*{demographics.childHomeAddress}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-2">
 		                    <div class="form-group">
-		                        <label for="form_email">Cidade</label>
-		                        <select class="form-control" name="city" th:field="*{demographics.city}">
+		                        <label for="city">Cidade</label>
+		                        <select class="form-control" id="city" name="city" th:field="*{demographics.city}">
 						            <option th:each="umacidade : ${listcity}" 
 						            		th:value="${umacidade.id}" 
 						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
@@ -148,22 +148,22 @@
 		            <div class="row">
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">CEP</label>
-		                        <input id="form_phone" type="text" name="zipCode" th:field="*{demographics.zipCode}" class="form-control" >
+		                        <label for="zipCode">CEP</label>
+		                        <input id="zipCode" type="text" name="zipCode" th:field="*{demographics.zipCode}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_email">Município</label>
-		                        <input id="form_phone" type="text" name="country" th:field="*{demographics.country}" class="form-control" >
+		                        <label for="country">Município</label>
+		                        <input id="country" type="text" name="country" th:field="*{demographics.country}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_phone">Endereço residêncial é o mesmo de correspondência?</label>
-		                        <select class="form-control" name="homeAddressMaillingAddress" th:field="*{demographics.homeAddressMaillingAddress}">
+		                        <label for="homeAddressMaillingAddress">Endereço residêncial é o mesmo de correspondência?</label>
+		                        <select class="form-control" id="homeAddressMaillingAddress" name="homeAddressMaillingAddress" th:field="*{demographics.homeAddressMaillingAddress}">
 						            <option th:value="true">Sim</option>
 				            		<option th:value="false">Não</option>
 						        </select>
@@ -174,20 +174,19 @@
 		            <div class="row">
 		                <div class="col-sm-8">
 		                    <div class="form-group">
-		                        <label for="form_name">Endereço de correspondência</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="childPermanentAddress" th:field="*{demographics.childPermanentAddress}" ></textarea>
+		                        <label for="childPermanentAddress">Endereço de correspondência</label>
+		                        <textarea id="childPermanentAddress" class="form-control hashomeAddressMaillingAddress"  rows="4" name="childPermanentAddress" th:field="*{demographics.childPermanentAddress}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-2">
 		                    <div class="form-group">
-		                        <label for="form_email">Cidade do endereço de correspondência</label>
-		                        <select class="form-control" name="cityChildPermanentAddress" th:field="*{demographics.cityChildPermanentAddress}">
+		                        <label for="cityChildPermanentAddress">Cidade do endereço de correspondência</label>
+		                        <select class="form-control hashomeAddressMaillingAddress" id="cityChildPermanentAddress" name="cityChildPermanentAddress" th:field="*{demographics.cityChildPermanentAddress}">
 						            <option th:each="umacidade : ${listcity}" 
 						            		th:value="${umacidade.id}" 
 						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
 						        </select>
-						        
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -195,15 +194,15 @@
 		            <div class="row">
 		                <div class="col-sm-6">
 		                    <div class="form-group">
-		                        <label for="form_name">CEP do endereço de correspondência</label>
-		                        <input id="form_phone" type="text" name="zipCodeChildPermanentAddress" th:field="*{demographics.zipCodeChildPermanentAddress}" class="form-control" >
+		                        <label for="zipCodeChildPermanentAddress">CEP do endereço de correspondência</label>
+		                        <input id="zipCodeChildPermanentAddress" type="text" name="zipCodeChildPermanentAddress" th:field="*{demographics.zipCodeChildPermanentAddress}" class="form-control hashomeAddressMaillingAddress" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-6">
 		                    <div class="form-group">
-		                        <label for="form_email">Município do endereço de correspondência</label>
-		                        <input id="form_phone" type="text" name="countryChildPermanentAddress" th:field="*{demographics.countryChildPermanentAddress}" class="form-control" >
+		                        <label for="countryChildPermanentAddress">Município do endereço de correspondência</label>
+		                        <input id="countryChildPermanentAddress" type="text" name="countryChildPermanentAddress" th:field="*{demographics.countryChildPermanentAddress}" class="form-control hashomeAddressMaillingAddress" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -212,22 +211,22 @@
 		            <div class="row">
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Telefone da casa</label>
-		                        <input id="form_phone" type="text" name="primaryHomeNumber" th:field="*{demographics.primaryHomeNumber}" class="form-control" >
+		                        <label for="primaryHomeNumber">Telefone da casa</label>
+		                        <input id="primaryHomeNumber" type="text" name="primaryHomeNumber" th:field="*{demographics.primaryHomeNumber}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Telefone a casa alternativo um</label>
-		                        <input id="form_phone" type="text" name="alternateHomeNumberOne" th:field="*{demographics.alternateHomeNumberOne}" class="form-control" >
+		                        <label for="alternateHomeNumberOne">Telefone a casa alternativo um</label>
+		                        <input id="alternateHomeNumberOne" type="text" name="alternateHomeNumberOne" th:field="*{demographics.alternateHomeNumberOne}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Telefone da casa alternativo dois</label>
-		                        <input id="form_phone" type="text" name="alternateHomeNumberTwo" th:field="*{demographics.alternateHomeNumberTwo}" class="form-control" >
+		                        <label for="alternateHomeNumberTwo">Telefone da casa alternativo dois</label>
+		                        <input id="alternateHomeNumberTwo" type="text" name="alternateHomeNumberTwo" th:field="*{demographics.alternateHomeNumberTwo}" class="form-control" >
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -239,8 +238,8 @@
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <label for="form_name">Descreva qual a doença ou diagnóstico da criança</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="medicalProblemDescription" th:field="*{medicalInformation.medicalProblemDescription}" ></textarea>
+		                        <label for="medicalProblemDescription">Descreva qual a doença ou diagnóstico da criança</label>
+		                        <textarea id="medicalProblemDescription" class="form-control"  rows="4" name="medicalProblemDescription" th:field="*{medicalInformation.medicalProblemDescription}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -250,8 +249,8 @@
 		            <div class="row">
 		                <div class="col-sm-8">
 		                    <div class="form-group">
-		                        <label for="form_name">Início do problema</label>
-		                        <select class="form-control" name="onsetOfProblem" th:field="*{medicalInformation.onsetOfProblem}">
+		                        <label for="onsetOfProblem">Início do problema</label>
+		                        <select class="form-control" id="onsetOfProblem" name="onsetOfProblem" th:field="*{medicalInformation.onsetOfProblem}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.OnsetOfProblem).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -262,7 +261,7 @@
 		                </div>
 		                <div class="col-sm-2">
 		                    <div class="form-group">
-		                        <label for="form_name">Data do início do problema</label>
+		                        <label for="datetimepicker2">Data do início do problema</label>
 		                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
 				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" 
 				                    	th:field="*{medicalInformation.dateOnsetOfProblem}"/>
@@ -278,8 +277,8 @@
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <label for="form_name">Qual tratamento médico ou serviço você esta solicitando?</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="whatMedicalCareOrServiceLookingFor" th:field="*{medicalInformation.whatMedicalCareOrServiceLookingFor}" ></textarea>
+		                        <label for="whatMedicalCareOrServiceLookingFor">Qual tratamento médico ou serviço você esta solicitando?</label>
+		                        <textarea id="whatMedicalCareOrServiceLookingFor" class="form-control"  rows="4" name="whatMedicalCareOrServiceLookingFor" th:field="*{medicalInformation.whatMedicalCareOrServiceLookingFor}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -289,8 +288,8 @@
 		            <div class="row">
 		                <div class="col-sm-12">
 		                    <div class="form-group">
-		                        <label for="form_name">Quais tratamentos anteriores a criança já recebeu?</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="whatPreviousTreatments" th:field="*{medicalInformation.whatPreviousTreatments}" ></textarea>
+		                        <label for="whatPreviousTreatments">Quais tratamentos anteriores a criança já recebeu?</label>
+		                        <textarea id="whatPreviousTreatments" class="form-control"  rows="4" name="whatPreviousTreatments" th:field="*{medicalInformation.whatPreviousTreatments}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -298,8 +297,8 @@
 		            <div class="row">
 		                <div class="col-sm-8">
 		                    <div class="form-group">
-		                        <label for="form_name">Qual a condição de locomoção da criança?</label>
-		                        <select class="form-control" name="childAmbulationStatus" th:field="*{medicalInformation.childAmbulationStatus}">
+		                        <label for="childAmbulationStatus">Qual a condição de locomoção da criança?</label>
+		                        <select class="form-control" id="childAmbulationStatus" name="childAmbulationStatus" th:field="*{medicalInformation.childAmbulationStatus}">
 						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.ChildAmbulationStatus).values()}"
 							            th:value="${state}"
 							            th:text="${state}">
@@ -310,8 +309,8 @@
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Descrição da condição de locomoção outros</label>
-		                        <textarea id="form_message" class="form-control"  rows="4" name="childAmbulationStatusOther" th:field="*{medicalInformation.childAmbulationStatusOther}" ></textarea>
+		                        <label for="childAmbulationStatusOther">Descrição da condição de locomoção outros</label>
+		                        <textarea id="childAmbulationStatusOther" class="form-control"  rows="4" name="childAmbulationStatusOther" th:field="*{medicalInformation.childAmbulationStatusOther}" ></textarea>
 		                        <div class="help-block with-errors"></div>
 		                    </div>
 		                </div>
@@ -320,8 +319,8 @@
 		            <div class="row">
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Foi realizado um exame da Raio X?</label>
-		                        <select class="form-control" name="xRayAvailable" th:field="*{medicalInformation.xRayAvailable}">
+		                        <label for="xRayAvailable">Foi realizado um exame da Raio X?</label>
+		                        <select class="form-control" id="xRayAvailable" name="xRayAvailable" th:field="*{medicalInformation.xRayAvailable}">
 						            <option th:value="true">Sim</option>
 				            		<option th:value="false">Não</option>
 						        </select>
@@ -330,12 +329,12 @@
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Data do Raio X mais recente</label>
-		                        <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" 
+		                        <label for="datetimepicker3">Data do Raio X mais recente</label>
+		                        <div class="input-group date hasxRayAvailable" id="datetimepicker3" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input hasxRayAvailable" data-target="#datetimepicker3" 
 				                    	th:field="*{medicalInformation.dateMostRecentXRay}"/>
-				                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-				                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                    <div class="input-group-append hasxRayAvailable" data-target="#datetimepicker3" data-toggle="datetimepicker">
+				                        <div class="input-group-text hasxRayAvailable"><i class="fa fa-calendar"></i></div>
 				                    </div>
 				                </div>
 		                        <div class="help-block with-errors"></div>
@@ -343,7 +342,7 @@
 		                </div>
 		                <div class="col-sm-4">
 		                    <div class="form-group">
-		                        <label for="form_name">Data da última consulta</label>
+		                        <label for="datetimepicker4">Data da última consulta</label>
 		                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
 				                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" 
 				                    	th:field="*{medicalInformation.dateLastSeeByPhysician}"/>
@@ -355,6 +354,629 @@
 		                    </div>
 		                </div>
 		                
+		            </div>
+		            <div class="row"><div class="col-sm-4"><h4>Como você ficou sabendo sobre os Hospitais Shriners para crianças?</h4></div></div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="howHearAbout">Como você ficou sabendo sobre os Hospitais Shriners para crianças?</label>
+		                        <select class="form-control" id="howHearAbout" name="howHearAbout" th:field="*{shrinersInfo.howHearAbout}">
+						            <option th:each="state : ${T(br.univille.ShrinersSantaCatarinaSystem.model.HowHearAbout).values()}"
+							            th:value="${state}"
+							            th:text="${state}">
+							    	</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Informações de referência médica</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="hasRefferingPhysician">Existem dados de referência do médico?</label>
+		                        <select class="form-control" id="hasRefferingPhysician" name="hasRefferingPhysician" th:field="*{doctorReferralInfo.hasRefferingPhysician}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="doctorLastName">Sobrenome</label>
+		                        <input id="doctorLastName" type="text" name="doctorLastName" th:field="*{doctorReferralInfo.doctorLastName}" class="form-control refferingPhysician"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="doctorFirstName">Primeiro nome</label>
+		                        <input id="doctorFirstName" type="text" name="doctorFirstName" th:field="*{doctorReferralInfo.doctorFirstName}" class="form-control refferingPhysician"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumber">Telefone</label>
+		                        <input id="phoneNumber" type="text" name="phoneNumber" th:field="*{doctorReferralInfo.phoneNumber}" class="form-control refferingPhysician" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumberSecond">Telefone Secundário</label>
+		                        <input id="phoneNumberSecond" type="text" name="phoneNumberSecond" th:field="*{doctorReferralInfo.phoneNumberSecond}" class="form-control refferingPhysician" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="officeAddress">Endereço do Consultório</label>
+		                        <textarea id="officeAddress" class="form-control refferingPhysician"  rows="4" name="officeAddress" th:field="*{doctorReferralInfo.officeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="citydoctorReferralInfo">Cidade</label>
+		                        <select class="form-control refferingPhysician" id="citydoctorReferralInfo"  name="citydoctorReferralInfo" th:field="*{doctorReferralInfo.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="zipCodedoctorReferralInfo">CEP</label>
+		                        <input id="zipCodedoctorReferralInfo" type="text" name="zipCodedoctorReferralInfo" th:field="*{doctorReferralInfo.zipCode}" class="form-control refferingPhysician" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="countrydoctorReferralInfo">Município</label>
+		                        <input id="countrydoctorReferralInfo" type="text" name="countrydoctorReferralInfo" th:field="*{doctorReferralInfo.country}" class="form-control refferingPhysician" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Informações de referência sobre o Templo e Shriner</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="referringTemple">Templo de referência</label>
+		                        <textarea id="referringTemple" class="form-control"  rows="4" name="referringTemple" th:field="*{referringTempleShriner.referringTemple}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="referringShriner">Shriner de referência</label>
+		                        <textarea id="referringShriner" class="form-control"  rows="4" name="referringShriner" th:field="*{referringTempleShriner.referringShriner}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="phonenumberreferringTempleShriner">Telefone</label>
+		                        <textarea id="phonenumberreferringTempleShriner" class="form-control"  rows="4" name="phonenumberreferringTempleShriner" th:field="*{referringTempleShriner.phonenumber}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Informações sobre a Mãe</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="notApplicablemotherLegalGuardianInfo">Não se aplica?</label>
+		                        <select class="form-control" id="notApplicablemotherLegalGuardianInfo" name="notApplicablemotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.notApplicable}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="lastNamemotherLegalGuardianInfo">Sobrenome</label>
+		                        <input id="lastNamemotherLegalGuardianInfo" type="text" name="lastNamemotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.lastName}" class="form-control motherLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="firstNamemotherLegalGuardianInfo">Primeiro nome</label>
+		                        <input id="firstNamemotherLegalGuardianInfo" type="text" name="firstNamemotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.firstName}" class="form-control motherLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="middleNamemotherLegalGuardianInfo">Nome do meio</label>
+		                        <input id="middleNamemotherLegalGuardianInfo" type="text" name="middleNamemotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.middleName}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="suffixNamemotherLegalGuardianInfo">Sufixo</label>
+		                        <input id="suffixNamemotherLegalGuardianInfo" type="text" name="suffixNamemotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.suffixName}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="addressSameAsChildmotherLegalGuardianInfo">Endereço idêntico ao da criança?</label>
+		                        <select class="form-control motherLegalGuardianInfo" id="addressSameAsChildmotherLegalGuardianInfo" name="addressSameAsChildmotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.addressSameAsChild}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="homeAddressmotherLegalGuardianInfo">Endereço residêncial</label>
+		                        <textarea id="homeAddressmotherLegalGuardianInfo" class="form-control motherLegalGuardianInfo"  rows="4" name="homeAddressmotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.homeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="citymotherLegalGuardianInfo">Cidade</label>
+		                        <select class="form-control motherLegalGuardianInfo" id="citymotherLegalGuardianInfo" name="citymotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="zipmotherLegalGuardianInfo">CEP</label>
+		                        <input id="zipmotherLegalGuardianInfo" type="text" name="zipmotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.zipCode}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="countrymotherLegalGuardianInfo">Município</label>
+		                        <input id="countrymotherLegalGuardianInfo" type="text" name="countrymotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.country}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="datetimepicker5">Data de Nascimento</label>
+		                        <div class="input-group date motherLegalGuardianInfo" id="datetimepicker5" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input motherLegalGuardianInfo" data-target="#datetimepicker5" 
+				                    	th:field="*{motherLegalGuardianInfo.birth}"/>
+				                    <div class="input-group-append motherLegalGuardianInfo" data-target="#datetimepicker5" data-toggle="datetimepicker">
+				                        <div class="input-group-text motherLegalGuardianInfo"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="phoneNumberPrimarymotherLegalGuardianInfo">Telefone Primário</label>
+		                        <input id="phoneNumberPrimarymotherLegalGuardianInfo" type="text" name="phoneNumberPrimarymotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.phoneNumberPrimary}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="phoneNumberSecundarymotherLegalGuardianInfo">Telefone Secundário</label>
+		                        <input id="phoneNumberSecundarymotherLegalGuardianInfo" type="text" name="phoneNumberSecundarymotherLegalGuardianInfo" th:field="*{motherLegalGuardianInfo.phoneNumberSecundary}" class="form-control motherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Informações sobre o Pai</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="notApplicablefatherLegalGuardianInfo">Não se aplica?</label>
+		                        <select class="form-control" id="notApplicablefatherLegalGuardianInfo" name="notApplicablefatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.notApplicable}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="lastNamefatherLegalGuardianInfo">Sobrenome</label>
+		                        <input id="lastNamefatherLegalGuardianInfo" type="text" name="lastNamefatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.lastName}" class="form-control fatherLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="firstNamefatherLegalGuardianInfo">Primeiro nome</label>
+		                        <input id="firstNamefatherLegalGuardianInfo" type="text" name="firstNamefatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.firstName}" class="form-control fatherLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="middleNamefatherLegalGuardianInfo">Nome do meio</label>
+		                        <input id="middleNamefatherLegalGuardianInfo" type="text" name="middleNamefatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.middleName}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="suffixNamefatherLegalGuardianInfo">Sufixo</label>
+		                        <input id="suffixNamefatherLegalGuardianInfo" type="text" name="suffixNamefatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.suffixName}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="addressSameAsChildfatherLegalGuardianInfo">Endereço idêntico ao da criança?</label>
+		                        <select class="form-control fatherLegalGuardianInfo" id="addressSameAsChildfatherLegalGuardianInfo" name="addressSameAsChildfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.addressSameAsChild}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="homeAddressfatherLegalGuardianInfo">Endereço residêncial</label>
+		                        <textarea id="homeAddressfatherLegalGuardianInfo" class="form-control fatherLegalGuardianInfo"  rows="4" name="homeAddressfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.homeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="cityfatherLegalGuardianInfo">Cidade</label>
+		                        <select class="form-control fatherLegalGuardianInfo" id="cityfatherLegalGuardianInfo" name="cityfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="zipfatherLegalGuardianInfo">CEP</label>
+		                        <input id="zipfatherLegalGuardianInfo" type="text" name="zipfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.zipCode}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="countryfatherLegalGuardianInfo">Município</label>
+		                        <input id="countryfatherLegalGuardianInfo" type="text" name="countryfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.country}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="datetimepicker6">Data de Nascimento</label>
+		                        <div class="input-group date fatherLegalGuardianInfo" id="datetimepicker6" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input fatherLegalGuardianInfo" data-target="#datetimepicker6" 
+				                    	th:field="*{fatherLegalGuardianInfo.birth}"/>
+				                    <div class="input-group-append fatherLegalGuardianInfo" data-target="#datetimepicker6" data-toggle="datetimepicker">
+				                        <div class="input-group-text fatherLegalGuardianInfo"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="phoneNumberPrimaryfatherLegalGuardianInfo">Telefone Primário</label>
+		                        <input id="phoneNumberPrimaryfatherLegalGuardianInfo" type="text" name="phoneNumberPrimaryfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.phoneNumberPrimary}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-4">
+		                    <div class="form-group">
+		                        <label for="phoneNumberSecundaryfatherLegalGuardianInfo">Telefone Secundário</label>
+		                        <input id="phoneNumberSecundaryfatherLegalGuardianInfo" type="text" name="phoneNumberSecundaryfatherLegalGuardianInfo" th:field="*{fatherLegalGuardianInfo.phoneNumberSecundary}" class="form-control fatherLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row"><div class="col-sm-4"><h4>Informações sobre o Tutor</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="notApplicablelegalGuardianInfo">Não se aplica?</label>
+		                        <select class="form-control" id="notApplicablelegalGuardianInfo" name="notApplicablelegalGuardianInfo" th:field="*{legalGuardianInfo.notApplicable}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="lastNamelegalGuardianInfo">Sobrenome</label>
+		                        <input id="lastNamelegalGuardianInfo" type="text" name="lastNamelegalGuardianInfo" th:field="*{legalGuardianInfo.lastName}" class="form-control legalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="firstNamelegalGuardianInfo">Primeiro nome</label>
+		                        <input id="firstNamelegalGuardianInfo" type="text" name="firstNamelegalGuardianInfo" th:field="*{legalGuardianInfo.firstName}" class="form-control legalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="middleNamelegalGuardianInfo">Nome do meio</label>
+		                        <input id="middleNamelegalGuardianInfo" type="text" name="middleNamelegalGuardianInfo" th:field="*{legalGuardianInfo.middleName}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="suffixNamelegalGuardianInfo">Sufixo</label>
+		                        <input id="suffixNamelegalGuardianInfo" type="text" name="suffixNamelegalGuardianInfo" th:field="*{legalGuardianInfo.suffixName}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="addressSameAsChildlegalGuardianInfo">Endereço idêntico ao da criança?</label>
+		                        <select class="form-control legalGuardianInfo" id="addressSameAsChildlegalGuardianInfo" name="addressSameAsChildlegalGuardianInfo" th:field="*{legalGuardianInfo.addressSameAsChild}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="homeAddresslegalGuardianInfo">Endereço residêncial</label>
+		                        <textarea id="homeAddresslegalGuardianInfo" class="form-control legalGuardianInfo"  rows="4" name="homeAddresslegalGuardianInfo" th:field="*{legalGuardianInfo.homeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="citylegalGuardianInfo">Cidade</label>
+		                        <select class="form-control legalGuardianInfo" id="citylegalGuardianInfo" name="citylegalGuardianInfo" th:field="*{legalGuardianInfo.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="ziplegalGuardianInfo">CEP</label>
+		                        <input id="ziplegalGuardianInfo" type="text" name="ziplegalGuardianInfo" th:field="*{legalGuardianInfo.zipCode}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="countrylegalGuardianInfo">Município</label>
+		                        <input id="countrylegalGuardianInfo" type="text" name="countrylegalGuardianInfo" th:field="*{legalGuardianInfo.country}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="datetimepicker7">Data de Nascimento</label>
+		                        <div class="input-group date legalGuardianInfo" id="datetimepicker7" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input legalGuardianInfo" data-target="#datetimepicker7" 
+				                    	th:field="*{legalGuardianInfo.birth}"/>
+				                    <div class="input-group-append legalGuardianInfo" data-target="#datetimepicker7" data-toggle="datetimepicker">
+				                        <div class="input-group-text legalGuardianInfo"><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumberPrimarylegalGuardianInfo">Telefone Primário</label>
+		                        <input id="phoneNumberPrimarylegalGuardianInfo" type="text" name="phoneNumberPrimarylegalGuardianInfo" th:field="*{legalGuardianInfo.phoneNumberPrimary}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumberSecundarylegalGuardianInfo">Telefone Secundário</label>
+		                        <input id="phoneNumberSecundarylegalGuardianInfo" type="text" name="phoneNumberSecundarylegalGuardianInfo" th:field="*{legalGuardianInfo.phoneNumberSecundary}" class="form-control legalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="relationshipToChildlegalGuardianInfo">Relação com a criança</label>
+		                        <textarea id="relationshipToChildlegalGuardianInfo" class="form-control legalGuardianInfo"  rows="4" name="relationshipToChildlegalGuardianInfo" th:field="*{legalGuardianInfo.relationshipToChild}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row"><div class="col-sm-4"><h4>Informações sobre o Tutor Adicional</h4></div></div>
+		            
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="notApplicableaditionalLegalGuardianInfo">Não se aplica?</label>
+		                        <select class="form-control" id="notApplicableaditionalLegalGuardianInfo" name="notApplicableaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.notApplicable}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="lastNameaditionalLegalGuardianInfo">Sobrenome</label>
+		                        <input id="lastNameaditionalLegalGuardianInfo" type="text" name="lastNameaditionalLegalGuardianInfo"  th:field="*{aditionalLegalGuardianInfo.lastName}" class="form-control aditionalLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="firstNameaditionalLegalGuardianInfo">Primeiro nome</label>
+		                        <input id="firstNameaditionalLegalGuardianInfo" type="text" name="firstNameaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.firstName}" class="form-control aditionalLegalGuardianInfo"  data-error="">
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="middleNameaditionalLegalGuardianInfo">Nome do meio</label>
+		                        <input id="middleNameaditionalLegalGuardianInfo" type="text" name="middleNameaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.middleName}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="suffixNameaditionalLegalGuardianInfo">Sufixo</label>
+		                        <input id="suffixNameaditionalLegalGuardianInfo" type="text" name="suffixNameaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.suffixName}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="addressSameAsChildaditionalLegalGuardianInfo">Endereço idêntico ao da criança?</label>
+		                        <select class="form-control aditionalLegalGuardianInfo" id="addressSameAsChildaditionalLegalGuardianInfo" name="addressSameAsChildaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.addressSameAsChild}">
+						            <option th:value="true">Sim</option>
+				            		<option th:value="false">Não</option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="homeAddressaditionalLegalGuardianInfo">Endereço residêncial</label>
+		                        <textarea id="homeAddressaditionalLegalGuardianInfo" class="form-control aditionalLegalGuardianInfo"  rows="4" name="homeAddressaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.homeAddress}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="cityaditionalLegalGuardianInfo">Cidade</label>
+		                        <select class="form-control aditionalLegalGuardianInfo" id="cityaditionalLegalGuardianInfo" name="cityaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.city}">
+						            <option th:each="umacidade : ${listcity}" 
+						            		th:value="${umacidade.id}" 
+						            		th:text="${umacidade.name + ' - ' + umacidade.state}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="zipaditionalLegalGuardianInfo">CEP</label>
+		                        <input id="zipaditionalLegalGuardianInfo" type="text" name="zipaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.zipCode}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="countryaditionalLegalGuardianInfo">Município</label>
+		                        <input id="countryaditionalLegalGuardianInfo" type="text" name="countryaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.country}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <div class="row">
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="datetimepicker8">Data de Nascimento</label>
+		                        <div class="input-group date aditionalLegalGuardianInfo" id="datetimepicker8" data-target-input="nearest">
+				                    <input type="text" class="form-control datetimepicker-input aditionalLegalGuardianInfo" data-target="#datetimepicker8" 
+				                    	th:field="*{aditionalLegalGuardianInfo.birth}"/>
+				                    <div class="input-group-append aditionalLegalGuardianInfo" data-target="#datetimepicker8" data-toggle="datetimepicker">
+				                        <div class="input-group-text aditionalLegalGuardianInfo" ><i class="fa fa-calendar"></i></div>
+				                    </div>
+				                </div>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumberPrimaryaditionalLegalGuardianInfo">Telefone Primário</label>
+		                        <input id="phoneNumberPrimaryaditionalLegalGuardianInfo" type="text" name="phoneNumberPrimaryaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.phoneNumberPrimary}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="phoneNumberSecundaryaditionalLegalGuardianInfo">Telefone Secundário</label>
+		                        <input id="phoneNumberSecundaryaditionalLegalGuardianInfo" type="text" name="phoneNumberSecundaryaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.phoneNumberSecundary}" class="form-control aditionalLegalGuardianInfo" >
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-3">
+		                    <div class="form-group">
+		                        <label for="relationshipToChildaditionalLegalGuardianInfo">Relação com a criança</label>
+		                        <textarea id="relationshipToChildaditionalLegalGuardianInfo" class="form-control aditionalLegalGuardianInfo"  rows="4" name="relationshipToChildaditionalLegalGuardianInfo" th:field="*{aditionalLegalGuardianInfo.relationshipToChild}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
 		            </div>
 		        </div>
 		        <div class="clearfix"></div>
@@ -376,6 +998,69 @@
                 $('#datetimepicker2').datetimepicker({
 					format:"DD/MM/YYYY HH:mm"                	
                 });
+                $('#datetimepicker3').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker4').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker5').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker6').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker7').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                $('#datetimepicker8').datetimepicker({
+					format:"DD/MM/YYYY HH:mm"                	
+                });
+                
+                $('#notApplicableaditionalLegalGuardianInfo').change(function () {
+                    var $this = $(this);
+                    $('.aditionalLegalGuardianInfo').prop('disabled', this.value==='true');
+                    $('.aditionalLegalGuardianInfo').prop('value', '');
+                });
+                $('#notApplicablelegalGuardianInfo').change(function () {
+                    var $this = $(this);
+                    $('.legalGuardianInfo').prop('disabled', this.value==='true');
+                    $('.legalGuardianInfo').prop('value', '');
+                });
+                
+                $('#notApplicablefatherLegalGuardianInfo').change(function () {
+                    var $this = $(this);
+                    $('.fatherLegalGuardianInfo').prop('disabled', this.value==='true');
+                    $('.fatherLegalGuardianInfo').prop('value', '');
+                });
+                
+                $('#notApplicablemotherLegalGuardianInfo').change(function () {
+                    var $this = $(this);
+                    $('.motherLegalGuardianInfo').prop('disabled', this.value==='true');
+                    $('.motherLegalGuardianInfo').prop('value', '');
+                });
+                
+                $('#hasRefferingPhysician').change(function () {
+                    var $this = $(this);
+                    $('.refferingPhysician').prop('disabled', this.value==='true');
+                    $('.refferingPhysician').prop('value', '');
+                });
+                
+                $('#xRayAvailable').change(function () {
+                    var $this = $(this);
+                    $('.hasxRayAvailable').prop('disabled', this.value==='false');
+                    $('.hasxRayAvailable').prop('value', '');
+                });
+                
+                $('#homeAddressMaillingAddress').change(function () {
+                    var $this = $(this);
+                    $('.hashomeAddressMaillingAddress').prop('disabled', this.value==='true');
+                    $('.hashomeAddressMaillingAddress').prop('value', '');
+                });
+                
+                
+                
+                
                 
             });
         </script>

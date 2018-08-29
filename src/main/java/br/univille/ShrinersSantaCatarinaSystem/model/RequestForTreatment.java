@@ -22,9 +22,72 @@ public class RequestForTreatment {
 	private Demographics demographics = new Demographics();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private MedicalInformation medicalInformation = new MedicalInformation();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private ShrinersInfo shrinersInfo = new ShrinersInfo();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private DoctorReferralInfo medicalReferralInfo = new DoctorReferralInfo();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private DoctorReferralInfo doctorReferralInfo = new DoctorReferralInfo();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private ReferringTempleShriner referringTempleShriner = new ReferringTempleShriner();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private LegalGuardianInfo motherLegalGuardianInfo = new LegalGuardianInfo("MOTHER");
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private LegalGuardianInfo fatherLegalGuardianInfo = new LegalGuardianInfo("FATHER");
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private LegalGuardianInfo legalGuardianInfo = new LegalGuardianInfo();
+	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
+	private LegalGuardianInfo aditionalLegalGuardianInfo = new LegalGuardianInfo();
 	
 	
-	
+	public LegalGuardianInfo getAditionalLegalGuardianInfo() {
+		return aditionalLegalGuardianInfo;
+	}
+	public void setAditionalLegalGuardianInfo(LegalGuardianInfo aditionalLegalGuardianInfo) {
+		this.aditionalLegalGuardianInfo = aditionalLegalGuardianInfo;
+	}
+	public ReferringTempleShriner getReferringTempleShriner() {
+		return referringTempleShriner;
+	}
+	public void setReferringTempleShriner(ReferringTempleShriner referringTempleShriner) {
+		this.referringTempleShriner = referringTempleShriner;
+	}
+	public LegalGuardianInfo getMotherLegalGuardianInfo() {
+		return motherLegalGuardianInfo;
+	}
+	public void setMotherLegalGuardianInfo(LegalGuardianInfo motherLegalGuardianInfo) {
+		this.motherLegalGuardianInfo = motherLegalGuardianInfo;
+	}
+	public LegalGuardianInfo getFatherLegalGuardianInfo() {
+		return fatherLegalGuardianInfo;
+	}
+	public void setFatherLegalGuardianInfo(LegalGuardianInfo fatherLegalGuardianInfo) {
+		this.fatherLegalGuardianInfo = fatherLegalGuardianInfo;
+	}
+	public LegalGuardianInfo getLegalGuardianInfo() {
+		return legalGuardianInfo;
+	}
+	public void setLegalGuardianInfo(LegalGuardianInfo legalGuardianInfo) {
+		this.legalGuardianInfo = legalGuardianInfo;
+	}
+	public DoctorReferralInfo getDoctorReferralInfo() {
+		return doctorReferralInfo;
+	}
+	public void setDoctorReferralInfo(DoctorReferralInfo doctorReferralInfo) {
+		this.doctorReferralInfo = doctorReferralInfo;
+	}
+	public DoctorReferralInfo getMedicalReferralInfo() {
+		return medicalReferralInfo;
+	}
+	public void setMedicalReferralInfo(DoctorReferralInfo medicalReferralInfo) {
+		this.medicalReferralInfo = medicalReferralInfo;
+	}
+	public ShrinersInfo getShrinersInfo() {
+		return shrinersInfo;
+	}
+	public void setShrinersInfo(ShrinersInfo shrinersInfo) {
+		this.shrinersInfo = shrinersInfo;
+	}
 	public MedicalInformation getMedicalInformation() {
 		return medicalInformation;
 	}

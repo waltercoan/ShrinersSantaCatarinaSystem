@@ -18,7 +18,7 @@ public class Demographics {
 	private long id;
 	private String childFirstName;
 	private String childLastName;
-	private String childLMiddleName;
+	private String childMiddleName;
 	private String childSuffixName;
 	@Temporal(value=TemporalType.TIMESTAMP)
 	private Date birth;
@@ -54,11 +54,11 @@ public class Demographics {
 	public void setChildLastName(String childLastName) {
 		this.childLastName = childLastName;
 	}
-	public String getChildLMiddleName() {
-		return childLMiddleName;
+	public String getChildMiddleName() {
+		return childMiddleName;
 	}
-	public void setChildLMiddleName(String childLMiddleName) {
-		this.childLMiddleName = childLMiddleName;
+	public void setChildMiddleName(String childMiddleName) {
+		this.childMiddleName = childMiddleName;
 	}
 	public String getChildSuffixName() {
 		return childSuffixName;
@@ -181,8 +181,31 @@ public class Demographics {
 		this.alternateHomeNumberTwo = alternateHomeNumberTwo;
 	}
 }
+/*enum Gender {
+	MALE{
+		@Override
+		public String toString() {
+			return "Masculino";
+		}
+	}, 
+	FEMALE{
+		@Override
+		public String toString() {
+			return "Feminino";
+		}
+	}, 
+	UNKNOWN{
+		@Override
+		public String toString() {
+			return "Desconhecido";
+		}
+	};
+}*/
+
 enum Gender {
-	MALE, FEMALE, UNKNOWN;
+	MALE, 
+	FEMALE, 
+	UNKNOWN;
 }
 enum ParentMaritalStatus {
 	MARRIED, DIVORCED, SINGLE, WIDOWED, SEPARATED;
