@@ -18,14 +18,13 @@ public class RequestForTreatment {
 	private long id;
 	@Temporal(value=TemporalType.TIMESTAMP)
 	private Date requestDate = new Date();
+	private boolean canceled = false;
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private Demographics demographics = new Demographics();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private MedicalInformation medicalInformation = new MedicalInformation();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private ShrinersInfo shrinersInfo = new ShrinersInfo();
-	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
-	private DoctorReferralInfo medicalReferralInfo = new DoctorReferralInfo();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private DoctorReferralInfo doctorReferralInfo = new DoctorReferralInfo();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
@@ -38,8 +37,22 @@ public class RequestForTreatment {
 	private LegalGuardianInfo legalGuardianInfo = new LegalGuardianInfo();
 	@ManyToOne(cascade= {CascadeType.MERGE,CascadeType.REFRESH, CascadeType.PERSIST})
 	private LegalGuardianInfo aditionalLegalGuardianInfo = new LegalGuardianInfo();
+	@ManyToOne(cascade= {CascadeType.REFRESH})
+	private WorkflowStep workflowStep;
 	
 	
+	public WorkflowStep getWorkflowStep() {
+		return workflowStep;
+	}
+	public void setWorkflowStep(WorkflowStep workflowStep) {
+		this.workflowStep = workflowStep;
+	}
+	public boolean isCanceled() {
+		return canceled;
+	}
+	public void setCanceled(boolean canceled) {
+		this.canceled = canceled;
+	}
 	public LegalGuardianInfo getAditionalLegalGuardianInfo() {
 		return aditionalLegalGuardianInfo;
 	}
@@ -75,12 +88,6 @@ public class RequestForTreatment {
 	}
 	public void setDoctorReferralInfo(DoctorReferralInfo doctorReferralInfo) {
 		this.doctorReferralInfo = doctorReferralInfo;
-	}
-	public DoctorReferralInfo getMedicalReferralInfo() {
-		return medicalReferralInfo;
-	}
-	public void setMedicalReferralInfo(DoctorReferralInfo medicalReferralInfo) {
-		this.medicalReferralInfo = medicalReferralInfo;
 	}
 	public ShrinersInfo getShrinersInfo() {
 		return shrinersInfo;

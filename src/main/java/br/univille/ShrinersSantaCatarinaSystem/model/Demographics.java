@@ -42,6 +42,13 @@ public class Demographics {
 	private String primaryHomeNumber;
 	private String alternateHomeNumberOne;
 	private String alternateHomeNumberTwo;
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getChildFirstName() {
 		return childFirstName;
 	}
@@ -203,9 +210,7 @@ public class Demographics {
 }*/
 
 enum Gender {
-	MALE, 
-	FEMALE, 
-	UNKNOWN;
+	MALE, FEMALE, UNKNOWN;
 }
 enum ParentMaritalStatus {
 	MARRIED, DIVORCED, SINGLE, WIDOWED, SEPARATED;

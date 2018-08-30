@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="layout :: htmlhead"></head>
+	<body>
+		<div class="container-fluid">
+			<nav th:replace="layout :: menu">(menu)</nav>
+			<div class="row"><div class="col-sm-4"><h3>Requisições de atendimento</h3></div></div>
+			<a href="form.html" th:href="@{/requestfortreatment/new}" class="btn btn-primary btn-lg" role="button">Novo</a>
+ 			<div class="border border-dark">
+				<table class="table">
+					<thead class="thead-light"> 
+						<tr>
+							<th scope="col">Data da requisição</th>
+							<th scope="col">Status</th>
+							<th scope="col">Médico</th>
+							<th scope="col">Sexo da Criança</th>
+							<th scope="col">Cidade</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr scope="row" th:each="onereq : ${listRequestForTreatment}">
+						    <td th:text="${#dates.format(onereq.requestDate, 'dd/MM/yyyy HH:mm')}"></td>
+						    <td th:text="${onereq.workflowStep.workflowStatus}"></td>
+							<td th:text="${onereq.doctorReferralInfo.doctorFirstName + ' ' + onereq.doctorReferralInfo.doctorLastName}"></td>
+							<td th:text="${onereq.demographics.gender}"></td>
+							<td th:text="${onereq.demographics.city.name + ' - ' + onereq.demographics.city.state}"></td>
+							<td>
+								<a href="form.html" th:href="@{'/requestfortreatment/update/' + ${onereq.id}}" class="btn btn-secondary btn-lg" role="button">Alterar</a>
+								<a href="form.html" th:href="@{'/statusrequestchangeregistry/changestatus/' + ${onereq.id}}" class="btn btn-secondary btn-lg" role="button">Analisar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<nav th:replace="layout :: menubottom">(menubottom)</nav>
+		</div>
+		<div th:include="layout :: footer" id="footer">(footer)</div>
+		<script th:inline="javascript">
+	      
+	    </script> 
+	</body>
+</html>

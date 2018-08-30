@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="layout :: htmlhead"></head>
+	<body>
+		<div class="container-fluid">
+			<nav th:replace="layout :: menu">(menu)</nav>
+			<div class="row"><div class="col-sm-4"><h3>Análise da Requisição</h3></div></div>
+ 			<div class="border border-dark">
+				<table class="table">
+					<thead class="thead-light"> 
+						<tr>
+							<th scope="col">Data da requisição</th>
+							<th scope="col">Status</th>
+							<th scope="col">Médico</th>
+							<th scope="col">Sexo da Criança</th>
+							<th scope="col">Cidade</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+					    <td th:text="${#dates.format(requestbase.requestDate, 'dd/MM/yyyy HH:mm')}"></td>
+					    <td th:text="${requestbase.workflowStep.workflowStatus}"></td>
+						<td th:text="${requestbase.doctorReferralInfo.doctorFirstName + ' ' + requestbase.doctorReferralInfo.doctorLastName}"></td>
+						<td th:text="${requestbase.demographics.gender}"></td>
+						<td th:text="${requestbase.demographics.city.name + ' - ' + requestbase.demographics.city.state}"></td>
+						<td>
+							<a href="form.html" target="_blank" th:href="@{'/requestfortreatment/update/' + ${requestbase.id}}" class="btn btn-secondary btn-lg" role="button">Consultar</a>
+						</td>
+					</tbody>
+				</table>
+			</div>
+			<div class="row"><div class="col-sm-4"><h4>Histórico de análises</h4></div></div>
+			<div class="border border-dark">
+				<table class="table">
+					<thead class="thead-light"> 
+						<tr>
+							<th scope="col">Data da modificação</th>
+							<th scope="col">Descrição</th>
+							<th scope="col">Novo Status</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+					    <tr scope="row" th:each="onelistStatusReq : ${listStatusReq}">
+						    <td th:text="${#dates.format(onelistStatusReq.dateChange, 'dd/MM/yyyy HH:mm')}"></td>
+							<td th:text="${onelistStatusReq.description}"></td>
+							<td th:text="${onelistStatusReq.workflowStep.workflowStatus}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row"><div class="col-sm-4"><h3>Nova análise</h3></div></div>
+		    <form id="contact-form" method="post" th:action="@{/statusrequestchangeregistry/(form)}" th:object="${statusRequestChangeRegistry}" role="form">
+		    	<input type="hidden" th:field="*{id}" />
+		    	<input type="hidden" name="request" th:value="${requestbase.id}" />
+		    	
+		        <div class="messages"></div>
+		        <div class="controls">
+		            <div class="row">
+		            	<div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="workflowStep">Novo Status</label>
+		                        <select class="form-control" id="workflowStep" name="workflowStep" th:field="${statusRequestChangeRegistry.workflowStep}">
+						            <option th:each="state : ${requestbase.workflowStep.nextWorkflowSteps}"
+							            th:value="${state.id}"
+							            th:text="${state}">
+							    	</option>
+							    	<option th:if="${requestbase.workflowStep.prevWorkflowSteps != null}" th:value="${requestbase.workflowStep.prevWorkflowSteps.id}" th:text="${requestbase.workflowStep.prevWorkflowSteps}"></option>
+						        </select>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-sm-12">
+		                    <div class="form-group">
+		                        <label for="description">Descrição</label>
+		                        <textarea id="description" class="form-control" required rows="4" name="description" th:field="${statusRequestChangeRegistry.description}" ></textarea>
+		                        <div class="help-block with-errors"></div>
+		                    </div>
+		                </div>
+		                
+		            </div>
+		        </div>
+		        <div class="clearfix"></div>
+		
+		        <div class="row">
+		            <div class="col-md-12">
+		                <input type="submit" class="btn btn-warning btn-send" value="Salvar">
+		            </div>
+		        </div>
+		    </form>
+		    </br></br></br></br></br>
+		    <nav th:replace="layout :: menubottom">(menubottom)</nav>
+		</div>
+		<div th:include="layout :: footer" id="footer">(footer)</div>
+		<script th:inline="javascript">
+	      
+	    </script> 
+	</body>
+</html>

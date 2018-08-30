@@ -5,7 +5,18 @@
 		<div class="container-fluid bg-light py-3">
 			<nav th:replace="layout :: menu">(menu)</nav>
 		    <form id="contact-form" method="post" th:action="@{/requestfortreatment/(form)}" th:object="${request}" role="form">
-		    	<input type="hidden" id="txtid" th:field="*{id}" />
+		    	<input type="hidden" th:field="*{id}" />
+		    	<input type="hidden" th:field="*{demographics.id}" />
+		    	<input type="hidden" th:field="*{medicalInformation.id}" />
+		    	<input type="hidden" th:field="*{shrinersInfo.id}" />
+		    	<input type="hidden" th:field="*{doctorReferralInfo.id}" />
+		    	<input type="hidden" th:field="*{referringTempleShriner.id}" />
+		    	<input type="hidden" th:field="*{motherLegalGuardianInfo.id}" />
+		    	<input type="hidden" th:field="*{fatherLegalGuardianInfo.id}" />
+		    	<input type="hidden" th:field="*{legalGuardianInfo.id}" />
+		    	<input type="hidden" th:field="*{aditionalLegalGuardianInfo.id}" />
+		    	<input type="hidden" th:field="*{workflowStep.id}" />
+		    	
 		        <div class="messages"></div>
 		        <div class="controls">
 		        	<div class="row"><div class="col-sm-4"><h3>Nova solicitação de atendimento</h3></div></div>
@@ -987,6 +998,8 @@
 		            </div>
 		        </div>
 		    </form>
+		    </br></br></br></br></br>
+		    <nav th:replace="layout :: menubottom">(menubottom)</nav>
 		</div>
 		
 		<div th:include="layout :: footer" id="footer">(footer)</div>
@@ -1042,7 +1055,7 @@
                 
                 $('#hasRefferingPhysician').change(function () {
                     var $this = $(this);
-                    $('.refferingPhysician').prop('disabled', this.value==='true');
+                    $('.refferingPhysician').prop('disabled', this.value==='false');
                     $('.refferingPhysician').prop('value', '');
                 });
                 
