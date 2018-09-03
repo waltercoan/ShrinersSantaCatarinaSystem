@@ -50,16 +50,9 @@ public class StatusRequestChangeRegistryController {
 		
 		return new ModelAndView("statusrequestchangeregistry/statuschange",dados);
 	}
+	@Secured("ROLE_ADMIN")
 	@PostMapping(params="form")
 	public ModelAndView saveStatusChange(@Valid StatusRequestChangeRegistry statusRequestChangeRegistry, BindingResult result, RedirectAttributes redirect) {
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		boolean hasUserRole = authentication.getAuthorities().stream()
-		          .anyMatch(r -> r.getAuthority().equals("ADMIN"));
-		
-		if(!hasUserRole) {
-			return new ModelAndView("redirect:/");
-		}
 		
 		statusRequestChangeRegistry.setDateChange(new Date());
 		statusRequestChangeRegistry = this.statusRequestChangeRegistryRepository.save(statusRequestChangeRegistry);
